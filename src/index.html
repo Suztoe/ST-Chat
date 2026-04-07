@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ST-Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- User Info Modal / ユーザー情報入力モーダル -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div id="modalForm" class="modal-form">
+      <h2>Welcome to ST-Chat</h2>
+      <p>STチャットへようこそ</p>
+
+      <div class="form-group">
+        <label for="usernameInput">Username / ユーザー名</label>
+        <input
+          id="usernameInput"
+          type="text"
+          placeholder="Enter your username"
+          autofocus
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="emailInput">Email (Optional) / メール（オプション）</label>
+        <input
+          id="emailInput"
+          type="email"
+          placeholder="your.email@example.com"
+        />
+      </div>
+
+      <button onclick="submitUserInfo()" class="btn-submit">
+        Start Chatting
+      </button>
+    </div>
+  </div>
+
+  <!-- Top bar: User count -->
+  <div id="topbar">
+    <span id="usercount">0 users</span>
+  </div>
+
+  <!-- Main app container -->
+  <div id="app">
+    <!-- Left: Profile -->
+    <div id="left">
+      <div class="panel-title">Profile</div>
+      <div id="username"></div>
+      <div id="email"></div>
+    </div>
+
+    <!-- Center: Main content -->
+    <div id="center">
+      <!-- Home view: Room list -->
+      <div id="homeView" class="view">
+        <h2>Rooms</h2>
+        <div id="roomGrid"></div>
+      </div>
+
+      <!-- Chat view -->
+      <div id="chatView" class="view" style="display: none">
+        <div class="chat-header">
+          <div id="roomTitle"></div>
+          <button onclick="goHome()" class="btn-back">← Back</button>
+        </div>
+        <div id="chat" class="chat-container"></div>
+        <div class="input-area">
+          <textarea
+            id="msg"
+            placeholder="Type message... (Shift+Enter for newline) / メッセージを入力..."
+          ></textarea>
+          <button onclick="send()" class="btn-send">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Room list -->
+    <div id="right">
+      <button onclick="createRoom()" class="btn-create">+ Create Room</button>
+      <div id="roomList"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/app.ts"></script>
+</body>
+</html>
