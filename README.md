@@ -32,5 +32,15 @@ Instead of copying the complexity and heaviness of modern chat apps, ST‑Chat f
 Modern chat apps tend to be heavy, slow, or overly complex.
 ST‑Chat aims to be the opposite: minimal, fast, and easy to understand, while still being extensible and open for future features like bots or custom clients.
 
+How To Execute:
+
+server.py:
+
+uvicorn server:app --reload
+
+Tauri:
+
+npm run tauri dev
+
 
 
